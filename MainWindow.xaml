@@ -3,14 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPFTestApp"
+        xmlns:local="clr-namespace:WPFTestApp" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TabControl>
             <TabItem Header="Elements list">
-                <Grid> <!-- TODO: ADD ELEMENTS -->
-                    
+                <Grid>
+                    <ListBox x:Name="listBox" HorizontalContentAlignment="Stretch">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="5"/>
+                                    <TextBlock Text="{Binding Surname}" VerticalAlignment="Center" Margin="5"/>
+                                    <Button Click="DeleteButton_Click" Tag="{Binding}" Margin="5">
+                                        <Button.Content>
+                                            <materialDesign:PackIcon Kind="Delete" Width="20" Height="20" />
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Load picture">
@@ -20,7 +35,7 @@
                         <RowDefinition Height="0.9*"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Button Width="100px" Content="Load picture" Grid.Row="0" Click="Button_Click"></Button>
-                    <Image Grid.Row="1" x:Name="LoadedPicture"></Image>
+                    <Image Grid.Row="1" Name="LoadedPicture"></Image>
                 </Grid>
             </TabItem>
         </TabControl>
