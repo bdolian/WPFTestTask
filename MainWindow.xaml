@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <TabControl>
+            <TabItem Header="Elements list">
+                <Grid> <!-- TODO: ADD ELEMENTS -->
+                    
+                </Grid>
+            </TabItem>
+            <TabItem Header="Load picture">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.1*" MinHeight="30px"></RowDefinition>
+                        <RowDefinition Height="0.9*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Width="100px" Content="Load picture" Grid.Row="0" Click="Button_Click"></Button>
+                    <Image Grid.Row="1" x:Name="LoadedPicture"></Image>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace WPFTestApp
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files|*.png;*.jpg;*.jpeg";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                LoadedPicture.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+            }
         }
     }
 }
