@@ -10,23 +10,21 @@
     <Grid>
         <TabControl>
             <TabItem Header="Elements list">
-                <Grid>
-                    <ListBox x:Name="listBox" HorizontalContentAlignment="Stretch">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="5"/>
-                                    <TextBlock Text="{Binding Surname}" VerticalAlignment="Center" Margin="5"/>
-                                    <Button Click="DeleteButton_Click" Tag="{Binding}" Margin="5">
-                                        <Button.Content>
-                                            <materialDesign:PackIcon Kind="Delete" Width="20" Height="20" />
-                                        </Button.Content>
-                                    </Button>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </Grid>
+                <ListBox Name="listBox" HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <TextBlock Text="{Binding Name}" FontSize="16" Margin="5"/>
+                                <TextBlock Text="{Binding Surname}" FontSize="16" Margin="5"/>
+                                <Button Click="DeleteButton_Click" Tag="{Binding}" HorizontalAlignment="Right">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon Kind="Delete" Width="30" Height="30" />
+                                    </Button.Content>
+                                </Button>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </TabItem>
             <TabItem Header="Load picture">
                 <Grid>
