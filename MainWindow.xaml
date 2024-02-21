@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTestApp" 
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:views="clr-namespace:WPFTestApp.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
@@ -18,31 +18,10 @@
     <Grid>
         <TabControl>
             <TabItem Header="Elements list">
-                <ListBox Name="listBox" HorizontalContentAlignment="Stretch">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <DockPanel>
-                                <TextBlock Text="{Binding Name}" FontSize="16" Margin="5"/>
-                                <TextBlock Text="{Binding Surname}" FontSize="16" Margin="5"/>
-                                <Button Click="DeleteButton_Click" Tag="{Binding}" HorizontalAlignment="Right">
-                                    <Button.Content>
-                                        <materialDesign:PackIcon Kind="Delete" Width="30" Height="30" />
-                                    </Button.Content>
-                                </Button>
-                            </DockPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <views:ElementsListView></views:ElementsListView>
             </TabItem>
             <TabItem Header="Load picture">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.1*" MinHeight="30px"></RowDefinition>
-                        <RowDefinition Height="0.9*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Button Width="100px" Content="Load picture" Grid.Row="0" Click="Button_Click"></Button>
-                    <Image Grid.Row="1" Name="LoadedPicture"></Image>
-                </Grid>
+                <views:LoadImageView></views:LoadImageView>
             </TabItem>
         </TabControl>
     </Grid>
