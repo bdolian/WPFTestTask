@@ -16,7 +16,7 @@ namespace WPFTestApp.ViewModels
             new PersonNameModel("Steven", "Tyler")
         };
 
-        public RelayCommand DeleteCommand => new RelayCommand(execute => DeletePersonName(), canExecute => SelectedPersonName != null);
+        public RelayCommand DeleteCommand => new (execute => DeletePersonName(), canExecute => SelectedPersonName != null);
 
         private PersonNameModel _selectedPersonName;
         public PersonNameModel SelectedPersonName

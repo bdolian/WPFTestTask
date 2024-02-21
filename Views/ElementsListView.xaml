@@ -15,10 +15,13 @@
             <DataGridTemplateColumn Width="0.04*">
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>
-                        <Button Content="X" 
-                                Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DeleteCommand}"
+                        <Button Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DeleteCommand}"
                                 CommandParameter="{Binding}" 
-                                Background="Transparent"/>
+                                Background="Transparent" MaxHeight="30px">
+                            <Button.Content>
+                                <Image Source="pack://application:,,,/Images/DeleteIcon.png"></Image>
+                            </Button.Content>
+                        </Button>
                     </DataTemplate>
                 </DataGridTemplateColumn.CellTemplate>
             </DataGridTemplateColumn>

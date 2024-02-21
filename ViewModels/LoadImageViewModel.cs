@@ -15,11 +15,14 @@ namespace WPFTestApp.ViewModels
                 OnPropertyChanged();
             }
         }
-        public RelayCommand LoadImageCommand => new RelayCommand(execute => LoadImage());
+        public RelayCommand LoadImageCommand => new (execute => LoadImage());
         private void LoadImage()
         {
-            var openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image files|*.png;*.jpg;*.jpeg";
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = "Image files|*.png;*.jpg;*.jpeg"
+            };
+
             if (openFileDialog.ShowDialog() == true)
             {
                 ImagePath = openFileDialog.FileName;

@@ -12,6 +12,6 @@
             <RowDefinition Height="0.9*"></RowDefinition>
         </Grid.RowDefinitions>
         <Button Width="100px" Content="Load picture" Grid.Row="0" Command="{Binding LoadImageCommand}"></Button>
-        <Image Grid.Row="1" Source="{Binding ImagePath}"></Image>
+        <Image Grid.Row="1" Source="{Binding ImagePath, TargetNullValue={x:Null}}"></Image>
     </Grid>
 </UserControl>
